@@ -40,7 +40,7 @@ This project simulates a multi-level parking lot with support for:
 
 Make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v16 or later)
+- [Node.js](https://nodejs.org/) (v20 or later)
 - [Nest CLI](https://docs.nestjs.com/cli/overview):  
   ```bash
   npm install -g @nestjs/cli
