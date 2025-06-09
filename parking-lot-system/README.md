@@ -11,7 +11,6 @@ This project simulates a multi-level parking lot with support for:
 - Type-specific parking slot assignment
 - Real-time slot availability
 - Entry and exit with ticket generation
-- Simulated concurrency handling
 
 ---
 
