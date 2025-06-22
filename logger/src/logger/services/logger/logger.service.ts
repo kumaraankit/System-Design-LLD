@@ -29,8 +29,4 @@ export class LoggerService {
         this.logLevel = level;
     }
 
-    addOutput(output: LogOutput) {
-        this.outputs.push(output);
-    }
-
 }
