@@ -12,6 +12,6 @@ export class LoggerController {
     @Post()
     logMessage(@Body() body: { level: LogLevels; message: string }) {
         this.loggerService.log(body.level, body.message)
-        return { status: 'current logging', ...body }
+        return { status: 'current logging', ...body, levelName: LogLevels[body.level] }
     }
 }

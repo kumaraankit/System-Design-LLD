@@ -9,20 +9,21 @@ export class LoggerService {
     private logLevel: LogLevels = LogLevels.DEBUG;
     private outputs: LogOutput[] = [new ConsoleOutput(), new FileOutput()];
 
-    log(level: LogLevels, message: string): void {
+    async log(level: LogLevels, message: string): Promise<void> {
         if (this.shouldLog(level)) {
             const log: LogMessage = {
                 timestamp: new Date(),
                 level,
                 message,
             };
-            this.outputs.forEach((output) => output.write(log));
+            await Promise.all(
+                this.outputs.map(output => Promise.resolve(output.write(log)))
+            );
         }
     }
 
     private shouldLog(level: LogLevels): boolean {
-        const levels = Object.values(LogLevels);
-        return levels.indexOf(level) >= levels.indexOf(this.logLevel);
+        return level >= this.logLevel;
     }
 
     setLogLevel(level: LogLevels) {
